@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de contatos</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <form action="/store" method="post" class="form">
+        <div class="form-group">
+            <label for="name">Nome:</label>
+            <input type="text" name="name" id="name">
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email">
+        </div>
+        <div class="form-group">
+            <label for="phone">Telefone:</label>
+            <input type="text" name="phone" id="phone">
+        </div>
+        <div class="form-group">
+            <label for="type">Tipo de contato:</label>
+            <select name="type" id="type">
+                <option value="Mãe">Mãe</option>
+                <option value="Pai">Pai</option>
+                <option value="Irmão">Irmão</option>
+                <option value="Irmã">Irmã</option>
+            </select>
+        </div>
+        <button type="submit">Salvar!</button>
+    </form>
+
+    <ul class="contacts-saved">
+        <li>
+            <div class="name">Nome:</div>
+            <div class="email">E-mail:</div>
+            <div class="phone">Telefone:</div>
+            <div class="type">Tipo de contato:</div>
+        </li>
+        <% if (contacts) { %>
+            <% contacts.forEach(function (contact) {%>
+                <li>
+                    <div class="name"><%= contact.name %></div>
+                    <div class="email"><%= contact.email %></div>
+                    <div class="phone"><%= contact.phone %></div>
+                    <div class="type"><%= contact.type %></div>
+                </li>
+            <% }); %>
+        <% } %>
+    </ul>
+</body>
+
+</html>
